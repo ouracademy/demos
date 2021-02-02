@@ -12,7 +12,9 @@ def imgInPdf():
     vb_path = storage(request.files['vb'])
     sign_path = storage(request.files['sign'])
     output_file = addImages(file_path, vb_path, sign_path, file.filename)
-    return { "file": output_file }
+
+    url_file = f'{request.base_url}?name={output_file}'
+    return { "file": url_file }
 
 
 @app.route('/pdf', methods=['GET'])
