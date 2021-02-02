@@ -1,7 +1,9 @@
 from flask import Flask, request, send_file
+from flask_cors import CORS
 from pdf import addImages 
 from util import getPath, storage
 app = Flask(__name__,  static_url_path="/files")
+CORS(app)
 
 @app.route('/pdf', methods=['POST'])
 def imgInPdf():
@@ -19,8 +21,6 @@ def getPdf():
     output_file = getPath(data.get('name'))
     return send_file(output_file)
 
-from flask import Flask
-app = Flask(__name__)
 
 @app.route('/')
 def hello():
