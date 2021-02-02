@@ -1,15 +1,15 @@
 from flask import Flask, request, send_file
 from pdf import addImages 
-from util import getPath, storageFiles
+from util import getPath, storage
 app = Flask(__name__,  static_url_path="/files")
 
 @app.route('/pdf', methods=['POST'])
 def imgInPdf():
     file = request.files['input']
-    vb = request.files['vb']
-    sign = request.files['sign']
-    f1, f2, f3 = storageFiles(file, vb, sign)
-    output_file = addImages(f1, f2, f3, file.filename)
+    file_path = storage(file)
+    vb_path = storage(request.files['vb'])
+    sign_path = storage(request.files['sign'])
+    output_file = addImages(file_path, vb_path, sign_path, file.filename)
     return { "file": output_file }
 
 
