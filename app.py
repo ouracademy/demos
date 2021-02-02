@@ -9,7 +9,7 @@ def imgInPdf():
     vb = request.files['vb']
     sign = request.files['sign']
     f1, f2, f3 = storageFiles(file, vb, sign)
-    output_file = addImages(f1, f2, f3, file.name)
+    output_file = addImages(f1, f2, f3, file.filename)
     return { "file": output_file }
 
 

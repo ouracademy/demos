@@ -17,6 +17,6 @@ def addImages(origin, vb, sign, output):
             x,y,x1,y1 = page.searchFor("Lima, 04 de enero de 2021")[0]
             rectangule = fitz.Rect(shape_sign(x+30,y+30))
             page.insertImage(rectangule, filename=sign)
-    output_file = output+'-out.pdf'
+    output_file = 'output-'+output
     file_handle.save(getPath(output_file))
     return output_file
