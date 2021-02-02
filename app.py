@@ -19,5 +19,12 @@ def getPdf():
     output_file = getPath(data.get('name'))
     return send_file(output_file)
 
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Ouracademy demos'
+
 if __name__ == '__main__':
     app.run()
