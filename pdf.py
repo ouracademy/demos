@@ -2,7 +2,7 @@ import fitz
 from util import getPath
 
 def shape_sign(x,y):
-    w, h = (150,100) 
+    w, h = (160,90) 
     return x,y, x+w,y+h
 
 
